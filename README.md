@@ -4,10 +4,17 @@ Hermes API is a programming interface to allow developers to write some plugins 
 
 ## Installation
 
-Use maven central repo
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/fr.blueberry-studio.hermes/hermes-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/fr.blueberry-studio.hermes/hermes-api/)
+
+### Maven
 
 ```xml
-<maven repo to come>
+    <dependency>
+      <groupId>fr.blueberry-studio.hermes</groupId>
+      <artifactId>hermes-api</artifactId>
+      <version>0.9-ALPHA</version>
+      <scope>provided</scope>
+    </dependency>
 ```
 
 ## Usage
