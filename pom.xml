@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>Hermes</artifactId>
+    <groupId>fr.blueberry-studio.hermes</groupId>
+    <version>0.8-ALPHA</version>
+  </parent>
+
+  <groupId>fr.blueberry-studio.hermes</groupId>
+  <artifactId>hermes-api</artifactId>
+  <version>0.8-ALPHA</version>
+
+  <name>hermes-api</name>
+  <url>https://www.hermesbot.app</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
+    <maven.compiler.release>15</maven.compiler.release>
+  </properties>
+
+  <dependencies>
+    <!-- JDA -->
+    <dependency>
+      <groupId>net.dv8tion</groupId>
+      <artifactId>JDA</artifactId>
+      <version>4.2.0_222</version>
+    </dependency>
+    <!-- lavaplayer -->
+    <dependency>
+      <groupId>com.sedmelluq</groupId>
+      <artifactId>lavaplayer</artifactId>
+      <version>1.3.61</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.Carleslc/Simple-YAML -->
+    <dependency>
+      <groupId>com.github.Carleslc</groupId>
+      <artifactId>Simple-YAML</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.7</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>3.4.5</version>
+    </dependency>
+    <!-- Emoji java -->
+    <dependency>
+      <groupId>com.kcthota</groupId>
+      <artifactId>emoji4j</artifactId>
+      <version>6.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+    <dependency>
+      <groupId>org.mariadb.jdbc</groupId>
+      <artifactId>mariadb-java-client</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
