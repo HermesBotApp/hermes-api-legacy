@@ -4,12 +4,12 @@
   <parent>
     <artifactId>Hermes</artifactId>
     <groupId>fr.blueberry-studio.hermes</groupId>
-    <version>0.8-ALPHA</version>
+    <version>0.9-ALPHA</version>
   </parent>
 
   <groupId>fr.blueberry-studio.hermes</groupId>
   <artifactId>hermes-api</artifactId>
-  <version>0.8-ALPHA</version>
+  <version>0.9-ALPHA</version>
 
   <name>hermes-api</name>
   <url>https://www.hermesbot.app</url>
