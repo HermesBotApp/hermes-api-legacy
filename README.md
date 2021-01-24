@@ -63,7 +63,7 @@ public class MyPlugin extends Plugin {
     public void onNoTriggerer() {
     }
 
-    //When all the others plugins are enabled and everything is working fine. Usefull to hook into anothers plugins.
+    //When all the others plugins are enabled and everything is working fine. Usefull to hook into others plugins.
     public void onPost() {
     }
 }
