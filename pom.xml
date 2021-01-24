@@ -9,10 +9,12 @@
 
   <groupId>fr.blueberry-studio.hermes</groupId>
   <artifactId>hermes-api</artifactId>
-  <version>0.9-ALPHA</version>
+  <version>0.9.0-ALPHA</version>
+  <packaging>jar</packaging>
 
   <name>hermes-api</name>
-  <url>https://www.hermesbot.app</url>
+  <url>https://gitlab.com/blueberry-studio/hermes/hermes-api</url>
+  <description>API to program Hermes bot plugins for Discord.</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +22,28 @@
     <maven.compiler.target>15</maven.compiler.target>
     <maven.compiler.release>15</maven.compiler.release>
   </properties>
+
+  <licenses>
+    <license>
+      <name>GPLv3</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Mickaël Dhainaut</name>
+      <email>hello@grimille.fr</email>
+      <organization>Blueberry-Studio</organization>
+      <organizationUrl>https://www.blueberry-studio.fr</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://gitlab.com/blueberry-studio/hermes/hermes-api.git</connection>
+    <developerConnection>scm:git:ssh://gitlab.com/blueberry-studio/hermes/hermes-api.git</developerConnection>
+    <url>https://gitlab.com/blueberry-studio/hermes/hermes-api</url>
+  </scm>
 
   <dependencies>
     <!-- JDA -->
@@ -72,11 +96,78 @@
     </dependency>
   </dependencies>
   
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.7</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration> <!-- add this to disable checking -->
+              <doclint>none</doclint>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
