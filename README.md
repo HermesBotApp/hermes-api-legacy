@@ -12,7 +12,7 @@ Hermes API is a programming interface to allow developers to write some plugins 
     <dependency>
       <groupId>fr.blueberry-studio.hermes</groupId>
       <artifactId>hermes-api</artifactId>
-      <version>0.9-ALPHA</version>
+      <version>0.9.1-ALPHA</version>
       <scope>provided</scope>
     </dependency>
 ```
@@ -55,24 +55,19 @@ import fr.blueberry.studio.hermes.api.plugins.Plugin;
 public class MyPlugin extends Plugin {
 
     //When the plugin is loaded by Hermes
-    public void onLoad() {
-    }
+    public void onLoad() {}
 
     //When the plugin is enabled by Hermes
-    public void onEnable() {
-    }
+    public void onEnable() {}
 
     //When the plugin is disabled by Hermes
-    public void onDisable() {
-    }
+    public void onDisable() {}
 
     //When Hermes as no connected bots to serve your events and commands.
-    public void onNoTriggerer() {
-    }
+    public void onNoTriggerer() {}
 
     //When all the others plugins are enabled and everything is working fine. Usefull to hook into others plugins.
-    public void onPostStart() {
-    }
+    public void onPostStart() {}
 }
 ```
 
