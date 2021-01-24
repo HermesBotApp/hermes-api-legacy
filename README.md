@@ -63,7 +63,7 @@ public class MyPlugin extends Plugin {
     //When the plugin is disabled by Hermes
     public void onDisable() {}
 
-    //When Hermes as no connected bots to serve your events and commands.
+    //When Hermes has no connected bots to serve your events and commands.
     public void onNoTriggerer() {}
 
     //When all the others plugins are enabled and everything is working fine. Usefull to hook into others plugins.
