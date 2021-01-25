@@ -6,6 +6,8 @@ Hermes API is a programming interface to allow developers to write some plugins 
 
 [![Maven Central](https://img.shields.io/maven-central/v/fr.blueberry-studio.hermes/hermes-api.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22fr.blueberry-studio.hermes%22%20AND%20a:%22hermes-api%22)
 
+**You need Java Environment 15 to compile your plugin.**
+
 ### Maven
 
 ```xml
