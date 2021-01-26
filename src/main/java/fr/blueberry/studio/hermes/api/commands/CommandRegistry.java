@@ -4,6 +4,9 @@ import java.util.Set;
 
 import fr.blueberry.studio.hermes.api.plugins.Plugin;
 
+/**
+ * Command registry for hermes
+ */
 public interface CommandRegistry {
 
     /**

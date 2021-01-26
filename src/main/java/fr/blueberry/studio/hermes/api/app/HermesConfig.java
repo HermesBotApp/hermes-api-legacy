@@ -2,6 +2,9 @@ package fr.blueberry.studio.hermes.api.app;
 
 import java.util.List;
 
+/**
+ * Interface to handle hermes configuration
+ */
 public interface HermesConfig {
     
     /**

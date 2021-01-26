@@ -3,6 +3,9 @@ package fr.blueberry.studio.hermes.api.jobs;
 import fr.blueberry.studio.hermes.api.app.Hermes;
 import fr.blueberry.studio.hermes.api.app.Logger;
 
+/**
+ * Job
+ */
 public interface Job {
     
     /**

@@ -1,5 +1,8 @@
 package fr.blueberry.studio.hermes.api.app;
 
+/**
+ * Logger
+ */
 public interface Logger {
 
     /**

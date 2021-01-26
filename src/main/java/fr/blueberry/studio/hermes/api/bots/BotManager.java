@@ -3,6 +3,9 @@ package fr.blueberry.studio.hermes.api.bots;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Interface to manage hermes bots
+ */
 public interface BotManager {
     /**
      * Create an hermes bot

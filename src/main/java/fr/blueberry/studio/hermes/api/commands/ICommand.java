@@ -4,6 +4,9 @@ import fr.blueberry.studio.hermes.api.app.Hermes;
 import fr.blueberry.studio.hermes.api.app.Logger;
 import fr.blueberry.studio.hermes.api.app.Sender;
 
+/**
+ * Interface for commands
+ */
 public interface ICommand {
     /**
      * Get the command label.

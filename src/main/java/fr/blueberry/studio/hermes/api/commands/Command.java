@@ -3,6 +3,9 @@ package fr.blueberry.studio.hermes.api.commands;
 import fr.blueberry.studio.hermes.api.app.Hermes;
 import fr.blueberry.studio.hermes.api.app.Logger;
 
+/**
+ * Command
+ */
 public abstract class Command implements ICommand {
     protected Hermes hermes;
     protected Logger logger;

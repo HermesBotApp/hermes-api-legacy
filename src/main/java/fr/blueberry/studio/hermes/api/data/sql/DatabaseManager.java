@@ -4,6 +4,9 @@ import java.sql.Connection;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+/**
+ * 
+ */
 public interface DatabaseManager {
     /**
      * Create a connection pool with default configuration.

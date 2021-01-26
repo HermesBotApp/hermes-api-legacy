@@ -1,5 +1,8 @@
 package fr.blueberry.studio.hermes.api.data.sql;
 
+/**
+ * 
+ */
 public class DatabaseCredentials {
     private final String url;
     private final String user;

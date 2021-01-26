@@ -15,6 +15,9 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 
+/**
+ * Interface to handle bots
+ */
 public interface Bot {
     /**
      * Get the bot JDA Gateway API.

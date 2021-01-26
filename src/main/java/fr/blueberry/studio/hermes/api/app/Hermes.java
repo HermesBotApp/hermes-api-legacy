@@ -8,6 +8,9 @@ import fr.blueberry.studio.hermes.api.data.sql.DatabaseManager;
 import fr.blueberry.studio.hermes.api.permissions.PermissionManager;
 import fr.blueberry.studio.hermes.api.plugins.PluginManager;
 
+/**
+ * Hermes Discord main
+ */
 public abstract class Hermes {
     private static Hermes INSTANCE;
 

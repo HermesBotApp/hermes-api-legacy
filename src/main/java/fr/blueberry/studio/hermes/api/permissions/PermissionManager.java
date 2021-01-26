@@ -4,6 +4,9 @@ import fr.blueberry.studio.hermes.api.app.Sender;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 
+/**
+ * Permission manager for Hermes
+ */
 public interface PermissionManager {
 
     /**

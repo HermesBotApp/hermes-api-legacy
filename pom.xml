@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>Hermes</artifactId>
-    <groupId>fr.blueberry-studio.hermes</groupId>
-    <version>0.9-ALPHA</version>
-  </parent>
 
   <groupId>fr.blueberry-studio.hermes</groupId>
   <artifactId>hermes-api</artifactId>
-  <version>0.9.0-ALPHA</version>
+  <version>0.9.1-ALPHA</version>
   <packaging>jar</packaging>
 
   <name>hermes-api</name>
@@ -44,6 +39,18 @@
     <developerConnection>scm:git:ssh://gitlab.com/blueberry-studio/hermes/hermes-api.git</developerConnection>
     <url>https://gitlab.com/blueberry-studio/hermes/hermes-api</url>
   </scm>
+
+  <repositories>
+    <repository>
+      <id>jcenter</id>
+      <name>jcenter-bintray</name>
+      <url>https://jcenter.bintray.com</url>
+    </repository>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <!-- JDA -->

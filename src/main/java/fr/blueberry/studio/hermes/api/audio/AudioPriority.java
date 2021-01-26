@@ -5,9 +5,9 @@ package fr.blueberry.studio.hermes.api.audio;
  * @hidden
  */
 public enum AudioPriority {
-    LOWEST,
-    LOW,
-    NORMAL,
-    HIGH,
-    HIGHEST
+    LOWEST, //
+    LOW, //
+    NORMAL, //
+    HIGH, //
+    HIGHEST //
 }

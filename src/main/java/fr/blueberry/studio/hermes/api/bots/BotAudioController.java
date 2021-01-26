@@ -6,6 +6,9 @@ import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 
 import fr.blueberry.studio.hermes.api.audio.AudioPriority;
 
+/**
+ * 
+ */
 public interface BotAudioController {
     /**
      * Create an audio player with given name.

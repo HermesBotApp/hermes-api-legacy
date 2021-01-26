@@ -11,6 +11,9 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.HashSet;
 
+/**
+ * 
+ */
 public class QueryHandler {
     private final Connection connection;
 
