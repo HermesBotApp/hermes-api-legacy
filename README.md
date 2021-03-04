@@ -14,7 +14,7 @@ Hermes API is a programming interface to allow developers to write some plugins 
     <dependency>
       <groupId>fr.blueberry-studio.hermes</groupId>
       <artifactId>hermes-api</artifactId>
-      <version>0.9.1-ALPHA</version>
+      <version>0.10.0-ALPHA</version>
       <scope>provided</scope>
     </dependency>
 ```
