@@ -1,6 +1,7 @@
 package fr.blueberry.studio.hermes.api.app;
 
 import fr.blueberry.studio.hermes.api.bots.Bot;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
@@ -28,6 +29,12 @@ public interface Sender {
      * @return - The identifier in String
      */
     String getIdentifier();
+
+    /**
+     * Get the Discord member associated with the sender.
+     * @return - The JDA member
+     */
+    Member getMember();
 
     /**
      * Get the Discord User associated with the sender.
