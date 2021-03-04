@@ -2,6 +2,7 @@ package fr.blueberry.studio.hermes.api.app;
 
 import fr.blueberry.studio.hermes.api.bots.Bot;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
@@ -43,10 +44,16 @@ public interface Sender {
     User getUser();
 
     /**
-     * Get the message channel from where come the sender.
+     * Get the message channel from where comes the sender.
      * @return - The Discord message channel.
      */
     MessageChannel getMessageChannel();
+
+    /**
+     * Get the Discord message from where comes the sender.
+     * @return - The Discord message.
+     */
+    Message getMessage();
 
     /**
      * Send back a message to the location (TextChannel / Console / etc..) where the sender come from.
