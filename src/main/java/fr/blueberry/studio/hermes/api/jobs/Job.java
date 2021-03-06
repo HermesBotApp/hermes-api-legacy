@@ -6,22 +6,33 @@ import fr.blueberry.studio.hermes.api.app.Logger;
 /**
  * Job
  */
-public interface Job {
+public abstract class Job {
     
+    private final Hermes hermes;
+    private final Logger logger;
+
+    public Job() {
+        this.hermes = Hermes.getHermes();
+        this.logger = hermes.getLogger();
+    }
     /**
      * Run the job.
      */
-    public void run();
+    public abstract void run();
 
     /**
      * Get Hermes application.
      * @return - Hermes app
      */
-    public Hermes getHermes();
+    public Hermes getHermes() {
+        return this.hermes;
+    }
 
     /**
      * Get the logger of the application.
      * @return - The logger of the application.
      */
-    public Logger getLogger();
+    public Logger getLogger() {
+        return this.logger;
+    }
 }
