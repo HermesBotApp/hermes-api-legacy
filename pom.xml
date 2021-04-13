@@ -4,7 +4,7 @@
 
   <groupId>fr.blueberry-studio.hermes</groupId>
   <artifactId>hermes-api</artifactId>
-  <version>0.10.2-ALPHA</version>
+  <version>0.10.3-ALPHA</version>
   <packaging>jar</packaging>
 
   <name>hermes-api</name>
