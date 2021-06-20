@@ -10,11 +10,11 @@ public class DatabaseCredentials {
     private final String databaseName;
     private final int port;
 
-    public DatabaseCredentials(String url, String user, String pass, String databaseName) {
+    public DatabaseCredentials(final String url, final String user, final String pass, final String databaseName) {
         this(url, user, pass, databaseName, 3306);
     }
 
-    public DatabaseCredentials(String url, String user, String pass, String databaseName, int port) {
+    public DatabaseCredentials(final String url, final String user, final String pass, final String databaseName, final int port) {
         this.url = url;
         this.user = user;
         this.pass = pass;

@@ -9,7 +9,7 @@ public class BeforeCommandEvent extends Event {
     private String input;
     private String[] args;
 
-    public BeforeCommandEvent(ICommand command, Sender sender, String input, String[] args) {
+    public BeforeCommandEvent(final ICommand command, final Sender sender, final String input, final String[] args) {
         this.command = command;
         this.sender = sender;
         this.input = input;

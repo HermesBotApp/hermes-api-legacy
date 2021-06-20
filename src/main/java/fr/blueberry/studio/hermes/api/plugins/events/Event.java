@@ -7,7 +7,7 @@ public abstract class Event {
         return canceled;
     }
 
-    public void setCanceled(boolean canceled) {
+    public void setCanceled(final boolean canceled) {
         this.canceled = canceled;
     }
 }

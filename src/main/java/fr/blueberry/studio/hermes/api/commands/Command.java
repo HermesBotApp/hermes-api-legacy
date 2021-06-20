@@ -16,26 +16,6 @@ public abstract class Command implements ICommand {
     }
 
     @Override
-    public String[] getAliases() {
-        return new String[]{};
-    }
-
-    @Override
-    public String getDescription() {
-        return "";
-    }
-
-    @Override
-    public String getUsage() {
-        return "";
-    }
-
-    @Override
-    public boolean isOpRestricted() {
-        return true;
-    }
-
-    @Override
     public Hermes getHermes() {
         return hermes;
     }

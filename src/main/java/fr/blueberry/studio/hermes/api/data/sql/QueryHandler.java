@@ -1,15 +1,8 @@
 package fr.blueberry.studio.hermes.api.data.sql;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.sql.Types;
-import java.util.HashSet;
+import java.sql.*;
+import java.util.Objects;
 
 /**
  * 
@@ -17,7 +10,7 @@ import java.util.HashSet;
 public class QueryHandler {
     private final Connection connection;
 
-    public QueryHandler(Connection connection) {
+    public QueryHandler(final Connection connection) {
         this.connection = connection;
     }
 
@@ -28,7 +21,7 @@ public class QueryHandler {
      * @return - The result of the query
      * @throws SQLException - If something went wrong from Database
      */
-    public ResultSet executeUpdate(String query, Object[] data) throws SQLException {
+    public ResultSet executeUpdate(final String query, final Object[] data) throws SQLException {
         final PreparedStatement statement = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         for(int i = 0; i < data.length; i++) {
@@ -47,9 +40,8 @@ public class QueryHandler {
      * @return - The count holding the returned values
      * @throws SQLException - If something went wrong from Database
      */
-    public int[] executeBatch(String query, Object[][] data) throws SQLException {
+    public int[] executeBatch(final String query, final Object[][] data) throws SQLException {
         final PreparedStatement statement = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        int[] count;
 
         connection.setAutoCommit(false);
 
@@ -57,11 +49,11 @@ public class QueryHandler {
             for(int j = 0; j < data[i].length; j++) {
                 bindData(statement, j + 1, data[i][j]);
             }
-            
+
             statement.addBatch();
         }
 
-        count = statement.executeBatch();
+        int[] count = statement.executeBatch();
         connection.commit();
         connection.setAutoCommit(true);
 
@@ -74,7 +66,7 @@ public class QueryHandler {
      * @return - The result of the query
      * @throws SQLException - If something went wrong from Database
      */
-    public ResultSet executeQuery(String query) throws SQLException {
+    public ResultSet executeQuery(final String query) throws SQLException {
         return executeQuery(query, null);
     }
 
@@ -85,7 +77,7 @@ public class QueryHandler {
      * @return - The result of the query
      * @throws SQLException - If something went wrong from Database
      */
-    public ResultSet executeQuery(String query, Object[] data) throws SQLException {
+    public ResultSet executeQuery(final String query, final Object[] data) throws SQLException {
         final PreparedStatement statement = this.connection.prepareStatement(query);
 
         if(data != null) {
@@ -102,7 +94,7 @@ public class QueryHandler {
      * @param queries - The queries to perform
      * @throws SQLException - If something went wrong from Database 
      */
-    public void executeCommit(String[] queries, Object[][] data) throws SQLException {
+    public void executeCommit(final String[] queries, final Object[][] data) throws SQLException {
         final PreparedStatement[] preparedStatements = new PreparedStatement[queries.length];
 
         connection.setAutoCommit(false);
@@ -130,15 +122,15 @@ public class QueryHandler {
      * @return - True if a table is found in database
      * @throws SQLException - If something went wrong from Database 
      */
-    public boolean tableExists(String table) throws SQLException {
+    public boolean tableExists(final String table) throws SQLException {
         final ResultSet tables = this.executeQuery("SHOW TABLES");
-        final HashSet<String> tablesName = new HashSet<>();
+        boolean tableFind = false;
 
-        while(tables.next()) {
-            tablesName.add(tables.getString(1));
+        while(tables.next() && !tableFind) {
+            tableFind = tables.getString(1).equals(table);
         }
 
-        return tablesName.contains(table);
+        return tableFind;
     }
 
     /**
@@ -148,7 +140,7 @@ public class QueryHandler {
      * @param primitive - The primitive data to bind
      * @throws SQLException - If something went wrong from Database
      */
-    private void bindData(PreparedStatement statement, int index, Object primitive) throws SQLException {
+    private void bindData(final PreparedStatement statement, final int index, final Object primitive) throws SQLException {
         if(primitive instanceof Integer) {
             statement.setInt(index, (Integer)primitive);
         } else if(primitive instanceof Long) {
@@ -181,7 +173,7 @@ public class QueryHandler {
      * @param query - The queries inlined as args.
      * @return - The queries in an array
      */
-    public String[] compactQueries(String... query) {
+    public String[] compactQueries(final String... query) {
         return query;
     }
 
@@ -190,7 +182,7 @@ public class QueryHandler {
      * @param o - The data inlined as args in Java Object type.
      * @return - The data in an array.
      */
-    public Object[] compactData(Object... o) {
+    public Object[] compactData(final Object... o) {
         return o;
     }
 
@@ -199,7 +191,7 @@ public class QueryHandler {
      * @throws SQLException - If something is wrong with SQL 
      */
     public void close() throws SQLException {
-        if(this.connection != null) {
+        if(Objects.nonNull(this.connection)) {
             this.connection.close();
         }
     }

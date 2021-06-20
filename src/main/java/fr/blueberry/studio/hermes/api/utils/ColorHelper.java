@@ -1,21 +1,21 @@
 package fr.blueberry.studio.hermes.api.utils;
 
-import java.awt.Color;
+import java.awt.*;
 
-public class ColorHelper {
+public final class ColorHelper {
     public static final String ANSI_RESET = "\u001B[0m";
+
+    private ColorHelper() throws IllegalAccessException {
+        throw new IllegalAccessException();
+    }
 
     /**
      * Convert an hexa color to RGB Color
      * @param hexa - The String of the hexadecimal color.
      * @return - The RGB Color
      */
-    public static Color toRGB(String hexa) {
-        return new Color(
-            Integer.valueOf(hexa.substring(1, 3), 16),
-            Integer.valueOf(hexa.substring(3, 5), 16),
-            Integer.valueOf(hexa.substring(5, 7), 16)
-        );
+    public static Color toRGB(final String hexa) {
+        return new Color(Integer.parseInt(hexa, 16));
     }
 
     /**
@@ -23,8 +23,8 @@ public class ColorHelper {
      * @param color - The Color to convert
      * @return - The String representation of the ANSI Foreground color
      */
-    public static String toAnsiForeground(Color color) {
-        return "\u001B[38;2;" + color.getRed() + ";" + color.getGreen() + ";" + color.getBlue() + "m";
+    public static String toAnsiForeground(final Color color) {
+        return String.format("\u001B[38;2;%s;%s;%sm", color.getRed(), color.getGreen(), color.getBlue());
     }
 
     /**
@@ -32,7 +32,7 @@ public class ColorHelper {
      * @param color - The Color to convert
      * @return - The String representation of the ANSI Background color
      */
-    public static String toAnsiBackground(Color color) {
-        return "\u001B[48;2;" + color.getRed() + ";" + color.getGreen() + ";" + color.getBlue() + "m";
+    public static String toAnsiBackground(final Color color) {
+        return String.format("\u001B[48;2;%s;%s;%sm", color.getRed(), color.getGreen(), color.getBlue());
     }
 }
