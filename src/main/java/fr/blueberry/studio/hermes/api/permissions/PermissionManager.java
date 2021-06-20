@@ -12,7 +12,7 @@ public interface PermissionManager {
     /**
      * Refresh the permissions 
      */
-    public void refreshPermissions();
+    void refreshPermissions();
 
     /**
      * Check if a sender has the given permission.
@@ -20,7 +20,7 @@ public interface PermissionManager {
      * @param permission - The permission node
      * @return - True if the sender has the permission.
      */
-    public boolean hasPermission(Sender sender, String permission);
+    boolean hasPermission(Sender sender, String permission);
 
     /**
      * Check if a member has the given permission.
@@ -28,7 +28,7 @@ public interface PermissionManager {
      * @param permission - The permission node
      * @return - True if the member has the permission.
      */
-    public boolean hasPermission(Member member, String permission);
+    boolean hasPermission(Member member, String permission);
 
     /**
      * Check if a role has the given permission.
@@ -36,7 +36,7 @@ public interface PermissionManager {
      * @param permission - The permission node
      * @return - True if the role has the permission.
      */
-    public boolean hasPermission(Role role, String permission);
+    boolean hasPermission(Role role, String permission);
     
     /**
      * Check if a role has the given permission.
@@ -44,5 +44,5 @@ public interface PermissionManager {
      * @param permission - The permission node
      * @return - True if the role has the permission.
      */
-    public boolean hasPermission(long roleId, String permission);
+    boolean hasPermission(long roleId, String permission);
 }

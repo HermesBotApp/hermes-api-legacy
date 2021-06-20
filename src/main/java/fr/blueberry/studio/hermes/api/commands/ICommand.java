@@ -15,22 +15,28 @@ public interface ICommand {
     String getLabel();
 
     /**
-     * Get the command aliases.
+     * Get the command aliases. Empty array by default
      * @return - The list of command aliases.
      */
-    String[] getAliases();
+    default String[] getAliases() {
+        return new String[]{};
+    }
 
     /**
-     * Get the command description.
+     * Get the command description. Empty string by default
      * @return - The command description
      */
-    String getDescription();
+    default String getDescription() {
+        return "";
+    }
 
     /**
-     * Get the command usage.
+     * Get the command usage. Empty string by default
      * @return - The usage of the command.
      */
-    String getUsage();
+    default String getUsage() {
+        return "";
+    }
 
     /**
      * Get whether the command is restricted to operators
@@ -38,7 +44,9 @@ public interface ICommand {
      * might have to un-restrict your command yourself.
      * @return
      */
-    boolean isOpRestricted();
+    default boolean isOpRestricted() {
+        return true;
+    }
 
     /**
      * Execute the command

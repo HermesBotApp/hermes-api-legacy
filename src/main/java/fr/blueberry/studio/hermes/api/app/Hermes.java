@@ -1,7 +1,6 @@
 package fr.blueberry.studio.hermes.api.app;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
-
 import fr.blueberry.studio.hermes.api.bots.BotManager;
 import fr.blueberry.studio.hermes.api.commands.CommandRegistry;
 import fr.blueberry.studio.hermes.api.data.sql.DatabaseManager;
@@ -78,7 +77,7 @@ public abstract class Hermes {
      * Get this Hermes application main core.
      * @return - This Hermes application.
      */
-    public static final Hermes getHermes() {
+    public static Hermes getHermes() {
         return Hermes.INSTANCE;
     }
 }
