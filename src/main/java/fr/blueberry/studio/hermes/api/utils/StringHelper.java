@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringHelper {
+public final class StringHelper {
+
+    private StringHelper() throws IllegalAccessException {
+        throw new IllegalAccessException();
+    }
+
     /**
      * Split an input into args and remove the split tag.
      * Manage to get Strings in quote into a single arg.
@@ -12,7 +17,6 @@ public class StringHelper {
      * @param splitTag - The split tag to remove if exists.
      * @return - An array containing the splitted args.
      */
-
     public static String[] argumentify(String input, char splitTag) {
         final String[] originalArgs = input.split(" ");
         final Pattern pattern = Pattern.compile("\"(.*?)\"");
@@ -62,13 +66,11 @@ public class StringHelper {
      * @param args - The args array
      * @return - A string of the args with spaces.
      */
-    public static String stringify(int index, String[] args) {
+    public static String stringify(final int index, final String[] args) {
         final StringBuilder sb = new StringBuilder();
 
-        for(int i = 0; i < args.length; i++) {
-            if(i >= index) {
-                sb.append(args[i]).append(" ");
-            }
+        for(int i = index; i < args.length; i++) {
+            sb.append(args[i]).append(" ");
         }
 
         return sb.toString();
@@ -79,11 +81,9 @@ public class StringHelper {
      * @param plainArgs - The full command args & label
      * @return - The args of the command without label.
      */
-    public static String[] removeCommandLabel(String[] plainArgs) {
+    public static String[] removeCommandLabel(final String[] plainArgs) {
         final String[] args = new String[plainArgs.length - 1];
-
         System.arraycopy(plainArgs, 1, args, 0, args.length);
-
         return args;
     }
 
@@ -92,10 +92,8 @@ public class StringHelper {
      * @param word - The word to capitalize
      * @return - The capitalized word.
      */
-    public static String capitalizeFirst(String word) {
-        final String firstLetter = word.substring(0, 1).toUpperCase();
-
-        return firstLetter + word.substring(1);
+    public static String capitalizeFirst(final String word) {
+        return word.substring(0, 1).toUpperCase() + word.substring(1);
     }
 
 }

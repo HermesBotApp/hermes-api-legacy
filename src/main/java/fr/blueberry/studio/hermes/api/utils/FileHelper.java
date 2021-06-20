@@ -1,5 +1,8 @@
 package fr.blueberry.studio.hermes.api.utils;
 
+import org.apache.commons.io.IOUtils;
+import org.simpleyaml.configuration.file.YamlFile;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,10 +10,11 @@ import java.io.InputStream;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import org.apache.commons.io.IOUtils;
-import org.simpleyaml.configuration.file.YamlFile;
+public final class FileHelper {
 
-public class FileHelper {
+    private FileHelper() throws IllegalAccessException {
+        throw new IllegalAccessException();
+    }
     
     /**
      * Copy a file inside the jar application to a destination file
@@ -18,7 +22,7 @@ public class FileHelper {
      * @param dest - The destination file
      * @throws IOException - If something went wrong while manipulating IOs
      */
-    public static final void copyFileFromJar(String src, String dest) throws IOException {
+    public static void copyFileFromJar(final String src, final String dest) throws IOException {
         final InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(src);
         final FileOutputStream out = new FileOutputStream(dest);
 
@@ -33,7 +37,7 @@ public class FileHelper {
      * @return - A copy of the jar file in destination file.
      * @throws IOException - If there is something wrong with I/O. 
      */
-    public static final File copyFileFromJar(File src, String path, File dest) throws IOException {
+    public static File copyFileFromJar(final File src, final String path, final File dest) throws IOException {
         final JarFile jarFile = new JarFile(src);
         final JarEntry jarEntry = jarFile.getJarEntry(path);
         final InputStream is = jarFile.getInputStream(jarEntry);
@@ -54,7 +58,7 @@ public class FileHelper {
      * @return - The file entry in jar
      * @throws IOException - If there is something wrong with I/O
      */
-    public static final JarEntry getFileEntry(File jar, String file) throws IOException {
+    public static JarEntry getFileEntry(final File jar, final String file) throws IOException {
         final JarFile jarFile = new JarFile(jar);
         final JarEntry jarEntry = jarFile.getJarEntry(file);
        
@@ -68,7 +72,7 @@ public class FileHelper {
      * @param pluginFile - The plugin file to parse
      * @return - A yaml with all the parsed data
      */
-    public static final YamlFile parsePluginMeta(File pluginFile) throws IOException {
+    public static YamlFile parsePluginMeta(final File pluginFile) throws IOException {
         final File tempOutFile = File.createTempFile(pluginFile.getName(), ".yml");
         tempOutFile.deleteOnExit();
 

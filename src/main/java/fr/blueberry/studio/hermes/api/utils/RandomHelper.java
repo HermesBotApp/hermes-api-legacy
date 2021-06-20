@@ -1,9 +1,14 @@
 package fr.blueberry.studio.hermes.api.utils;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RandomHelper {
+public final class RandomHelper {
+
+    private RandomHelper() throws IllegalAccessException {
+        throw new IllegalAccessException();
+    }
 
     /**
      * Get a random value as integer and between bounds.
@@ -11,7 +16,7 @@ public class RandomHelper {
      * @param max - The max bound value
      * @return - A random number between bounds.
      */
-    public static int getRandom(int min, int max) {
+    public static int getRandom(final int min, final int max) {
         return ThreadLocalRandom.current().nextInt(min, max);
     }
 
@@ -20,10 +25,11 @@ public class RandomHelper {
      * @param list - The list where to get random index
      * @return - The randomized index.
      */
-    public static int getRandomIndex(List<?> list) {
-        if(list.size() <= 0) {
-            return 0;
-        }
-        return ThreadLocalRandom.current().nextInt(list.size());
+    public static int getRandomIndex(final List<?> list) {
+        return Optional.ofNullable(list)
+                .filter(l -> !l.isEmpty())
+                .map(List::size)
+                .map(ThreadLocalRandom.current()::nextInt)
+                .orElse(0);
     }
 }
