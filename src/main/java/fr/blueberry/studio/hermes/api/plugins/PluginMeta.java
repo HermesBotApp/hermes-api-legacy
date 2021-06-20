@@ -7,7 +7,7 @@ public class PluginMeta {
     private final String author;
     private final String description;
 
-    public PluginMeta(String name, String main, String version, String author, String description) {
+    public PluginMeta(final String name, final String main, final String version, final String author, final String description) {
         this.name = name;
         this.main = main;
         this.version = version;

@@ -1,13 +1,13 @@
 package fr.blueberry.studio.hermes.api.plugins;
 
+import fr.blueberry.studio.hermes.api.plugins.events.Event;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-import fr.blueberry.studio.hermes.api.plugins.events.Event;
-
 public interface PluginManager {
-    public static final String PLUGINS_FOLDER = System.getProperty("user.dir") + "/plugins/";
+    String PLUGINS_FOLDER = System.getProperty("user.dir") + "/plugins/";
     
     File getPluginFolder();
 

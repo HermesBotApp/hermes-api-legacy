@@ -1,14 +1,14 @@
 package fr.blueberry.studio.hermes.api.plugins;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.simpleyaml.configuration.file.YamlFile;
-import org.simpleyaml.exceptions.InvalidConfigurationException;
-
 import fr.blueberry.studio.hermes.api.app.Hermes;
 import fr.blueberry.studio.hermes.api.app.Logger;
 import fr.blueberry.studio.hermes.api.commands.CommandRegistry;
+import org.simpleyaml.configuration.file.YamlFile;
+import org.simpleyaml.exceptions.InvalidConfigurationException;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Optional;
 
 public abstract class Plugin implements PluginBase {
     protected PluginMeta pluginMeta;
@@ -57,13 +57,10 @@ public abstract class Plugin implements PluginBase {
     }
 
     public YamlFile getConfiguration() {
-        if(this.config != null) {
-            return this.config;
-        }
-        return new YamlFile();
+        return Optional.ofNullable(this.config).orElseGet(YamlFile::new);
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(final boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -71,11 +68,11 @@ public abstract class Plugin implements PluginBase {
         return this.enabled;
     }
 
-    public void addPluginMeta(PluginMeta pluginMeta) {
+    public void addPluginMeta(final PluginMeta pluginMeta) {
         this.pluginMeta = pluginMeta;
     }
 
-    public void loadConfiguration(YamlFile config) throws InvalidConfigurationException, IOException {
+    public void loadConfiguration(final YamlFile config) throws InvalidConfigurationException, IOException {
         this.config = config;
         this.config.load();
     }

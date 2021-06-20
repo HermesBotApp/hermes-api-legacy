@@ -1,9 +1,9 @@
 package fr.blueberry.studio.hermes.api.plugins;
 
+import fr.blueberry.studio.hermes.api.plugins.events.Event;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import fr.blueberry.studio.hermes.api.plugins.events.Event;
 
 public class ExecutableListener implements Comparable<ExecutableListener> {
     private final Plugin plugin;
@@ -12,7 +12,7 @@ public class ExecutableListener implements Comparable<ExecutableListener> {
     private final boolean ignoreCancel;
     private final Method method;
 
-    public ExecutableListener(Plugin plugin, EventPriority eventPriority, Listener listener, boolean ignoreCancel, Method method) {
+    public ExecutableListener(final Plugin plugin, final EventPriority eventPriority, final Listener listener, final boolean ignoreCancel, final Method method) {
         this.plugin = plugin;
         this.eventPriority = eventPriority;
         this.listener = listener;
@@ -20,7 +20,7 @@ public class ExecutableListener implements Comparable<ExecutableListener> {
         this.method = method;
     }
 
-    public void execute(Event event) {
+    public void execute(final Event event) {
         try {
             method.invoke(listener, event);
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
@@ -29,7 +29,7 @@ public class ExecutableListener implements Comparable<ExecutableListener> {
     }
 
     @Override
-    public int compareTo(ExecutableListener o) {
+    public int compareTo(final ExecutableListener o) {
         return Integer.compare(eventPriority.ordinal(), o.eventPriority.ordinal());
     }
 

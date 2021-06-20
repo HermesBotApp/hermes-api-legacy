@@ -3,13 +3,13 @@ package fr.blueberry.studio.hermes.api.plugins.events;
 import fr.blueberry.studio.hermes.api.bots.Bot;
 
 public class BotEvent extends Event {
-    private final Bot bot;
+    protected final Bot bot;
 
     public BotEvent() {
-        this.bot = null;
+        this(null);
     }
 
-    public BotEvent(Bot bot) {
+    public BotEvent(final Bot bot) {
         this.bot = bot;
     }
 

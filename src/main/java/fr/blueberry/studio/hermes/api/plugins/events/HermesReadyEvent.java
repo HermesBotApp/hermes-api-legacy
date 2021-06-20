@@ -6,7 +6,7 @@ import fr.blueberry.studio.hermes.api.bots.Bot;
 public class HermesReadyEvent extends HermesEvent {
     private final Bot triggerer;
 
-    public HermesReadyEvent(Hermes hermes, Bot triggerer) {
+    public HermesReadyEvent(final Hermes hermes, final Bot triggerer) {
         super(hermes);
         this.triggerer = triggerer;
     }

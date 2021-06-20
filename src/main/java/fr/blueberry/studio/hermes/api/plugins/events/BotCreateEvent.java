@@ -4,7 +4,7 @@ public class BotCreateEvent extends BotEvent {
     private String name;
     private final String token;
 
-    public BotCreateEvent(String name, String token) {
+    public BotCreateEvent(final String name, final String token) {
         this.name = name;
         this.token = token;
     }
@@ -17,7 +17,7 @@ public class BotCreateEvent extends BotEvent {
         return this.token;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 }

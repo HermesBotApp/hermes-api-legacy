@@ -4,7 +4,7 @@ import fr.blueberry.studio.hermes.api.app.Hermes;
 
 public class HermesNoTriggererEvent extends HermesEvent {
 
-    public HermesNoTriggererEvent(Hermes hermes) {
+    public HermesNoTriggererEvent(final Hermes hermes) {
         super(hermes);
     }
 }
